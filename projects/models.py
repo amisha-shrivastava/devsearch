@@ -2,6 +2,8 @@ from django.db import models
 import uuid
 #create classes
 
+
+
 class Project(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField(null=True, blank=True) # not necessary 
