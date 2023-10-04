@@ -5,4 +5,4 @@ from .models import Project
 class ProjectForm(ModelForm):  #creates form based on the model
     class Meta:
         model = Project
-        fields = '__all__' #includes all editable fields
+        fields =  ['title', 'description', 'demo_link', 'source_link', 'tag'] #includes all editable fields '__all__'

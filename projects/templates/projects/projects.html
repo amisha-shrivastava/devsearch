@@ -3,10 +3,11 @@
 <a href="{% url 'create-project' %}">Add Project</a>
 <table>
     <tr>
-        <th>ID</th>
+        {% comment %} <th>ID</th> {% endcomment %}
         <th>Project</th>  
         <th>Votes</th>
         <th>Positive Votes</th>
+        <th></th>
         <th></th>
     </tr>
     {% for project in projects%}
@@ -18,6 +19,8 @@
         <td>{{project.created}}</td>
         <td>{{project.created}}</td>
         <td><a href={% url 'project' project.id%}>View</a></td>  
+        <td><a href="{% url 'delete-project' project.id %}">Delete</a></td>  
+        <td><a href={% url 'update-project' project.id%}>Edit</a></td>  
     </tr>
     {% endfor %}
 </table>
