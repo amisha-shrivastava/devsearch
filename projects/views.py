@@ -18,6 +18,7 @@ def project(request, pk):
 @login_required(login_url="login")
 def createProject(request):
     profile = request.user.profile
+    print(profile)
     form = ProjectForm()
     if request.method == 'POST':
         #CREATION
@@ -27,7 +28,7 @@ def createProject(request):
         if form.is_valid():
             project = form.save(commit=False)
             project.owner = profile
-            project.owner.save()
+            project.save()
             return redirect('projects')
     context = {'form':form}
     return render(request, "projects/project-form.html",context)
