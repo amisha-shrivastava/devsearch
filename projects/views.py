@@ -8,7 +8,7 @@ from .utils import searchProjects,paginateProjects
 
 def projects(request):
     projects,search_query = searchProjects(request)
-    custom_range,projects = paginateProjects(request, projects,2) 
+    custom_range,projects = paginateProjects(request, projects,6) 
     context = {'projects' : projects, 'search_query':search_query, 'custom_range':custom_range} 
     return render(request, 'projects/projects.html',context)
 
@@ -21,6 +21,7 @@ def project(request, pk):
         review.project = projectObj
         review.owner = request.user.profile
         review.save()
+        projectObj.getVoteCount
         messages.success(request,'Your review was successfully submitted.')
         return redirect('project',pk=projectObj.id)
     return render(request,'projects/single-project.html',{'project': projectObj, 'form':form}) 
