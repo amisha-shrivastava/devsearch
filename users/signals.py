@@ -18,6 +18,7 @@ def createProfile(sender, instance, created, **kwargs):
         subject = 'Welcome to DevSearch'
         body = 'We are glad you are here!'
         
+        
         send_mail(
             subject,
             body,
